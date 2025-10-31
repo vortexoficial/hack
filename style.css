@@ -126,16 +126,16 @@ section {
 .cta-button{
   background-color:var(--color-red); /* Cor HACK */
   color:var(--color-white); /* Cor HACK */
-  padding:15px 40px; border-radius:8px; text-decoration:none;
+  padding:13px 22px; border-radius:8px; text-decoration:none;
   font-weight:700; border:none; cursor:pointer;
   display:inline-block; margin-top:20px; position:relative; overflow:hidden;
   transition:transform .25s ease, box-shadow .25s ease;
   box-shadow:0 0 10px var(--color-red-glow); /* Cor HACK */
   /* Fontes HACK */
   font-family: var(--font-secondary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 /* Ícone dentro do botão (Estilo HACK original) */
 .cta-button i {
@@ -553,7 +553,7 @@ section {
 
 /* --- FIM DA SUBSTITUIÇÃO --- */
     .hero-headline{
-        font-size:2.8rem; /* Fonte HACK */
+        font-size:2.3rem; /* Fonte HACK */
         text-align:center;
     }
     .hero-description{
@@ -566,7 +566,7 @@ section {
         width:100%; 
         text-align:center; 
         padding:18px 30px; 
-        font-size:1.3rem; /* Fonte HACK */
+        font-size:0.9rem; /* Fonte HACK */
     }
     
     /* Citação HACK Mobile */
