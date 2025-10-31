@@ -1,0 +1,623 @@
+/* --- RAÍZES (Cores e Fontes Originais HACK) --- */
+:root {
+    --color-black: #0a0a0a;
+    --color-dark-gray: #1a1a1a;
+    --color-gray: #f4f4f4;
+    --color-white: #ffffff;
+    --color-red: #E60000;
+    --color-red-glow: rgba(230, 0, 0, 0.7); 
+    --color-purple: #6e2d91; 
+
+    /* Fontes resetadas para Montserrat */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    text-transform: none; /* <-- Principal mudança */
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: normal; /* <-- Segunda mudança */
+}
+/* Tamanhos de fonte restaurados */
+h1 { 
+    font-size: 4.5rem;
+    line-height: 0.9;
+} 
+h2 { 
+    font-size: 3.5rem; 
+    color: var(--color-red); 
+}
+h3 { 
+    font-size: 2rem; 
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #c0c0c0;
+}
+
+a {
+    color: var(--color-red);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+/* --- LOADER (Estilo do SINDCAN) --- */
+/* (Seu código do loader começa aqui...) */
+/* --- LOADER (Estilo do SINDCAN) --- */
+.loader-wrap{
+  position:fixed; inset:0; z-index:10000;
+  display:grid; place-items:center;
+  background:var(--color-black);
+  opacity:1; transition:opacity .4s ease, visibility .4s ease;
+  visibility:visible;
+}
+.loader-wrap.fade-out{opacity:0; pointer-events:none; visibility:hidden}
+.loader-inner{text-align:center; width:fit-content}
+.loader-logo img{
+  width:150px; height:auto; object-fit:contain; animation:fadeIn .8s ease-out forwards;
+}
+.loader-bar{
+  position:relative; width:150px; height:6px; margin:8px auto 0;
+  border-radius:999px; background:rgba(255,255,255,.15); overflow:hidden;
+}
+.loader-fill{
+  position:absolute; inset:0; background:var(--color-red); /* Cor HACK */
+  transform-origin:left; transform:scaleX(0); animation:fillLtoR 2.5s ease-in-out forwards;
+}
+@keyframes fillLtoR{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@keyframes fadeIn{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:translateY(0)}}
+
+
+/* --- ANIMAÇÃO FADE-IN (Estilo do SINDCAN) --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- BOTÃO CTA (Estilo do SINDCAN, Cores e Fontes HACK) --- */
+.cta-button{
+  background-color:var(--color-red); /* Cor HACK */
+  color:var(--color-white); /* Cor HACK */
+  padding:15px 40px; border-radius:8px; text-decoration:none;
+  font-weight:700; border:none; cursor:pointer;
+  display:inline-block; margin-top:20px; position:relative; overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
+  box-shadow:0 0 10px var(--color-red-glow); /* Cor HACK */
+  /* Fontes HACK */
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* Ícone dentro do botão (Estilo HACK original) */
+.cta-button i {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Efeito de brilho (cobrinha de luz) */
+.cta-button::before{
+  content:''; position:absolute; top:0; bottom:0; left:0; width:50%;
+  background:linear-gradient(to right, transparent, rgba(255,255,255,.4), transparent);
+  transform:translateX(-75%) skewX(-20deg);
+  animation:moveLight 2.4s linear infinite;
+  pointer-events:none; opacity:.85;
+}
+
+.cta-button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 25px var(--color-red-glow); /* Cor HACK */
+}
+
+/* Animação que move a luz */
+@keyframes moveLight{
+  0%{transform:translateX(-75%) skewX(-20deg)}
+  100%{transform:translateX(125%) skewX(-20deg)}
+}
+
+/* Botão Secundário (Estilo HACK Original) */
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-red);
+    color: var(--color-red);
+}
+
+
+/* --- HERO (Estilo do SINDCAN, adaptado para HACK) --- */
+.hero{
+  position:relative; width:100%; min-height:100vh;
+  display:flex; align-items:center;
+  padding: 100px 8% 100px 8%;
+  background-image:url('img/bg-desktop.jpg');
+  background-color: var(--color-black); /* Cor HACK */
+  background-size:cover;
+  background-position:right center;
+  background-repeat:no-repeat;
+}
+.hero-headline{
+  font-size: 3.0rem; /* Tamanho HACK original */
+  color:var(--color-white); font-weight:700; margin-bottom:0;
+  font-family: var(--font-secondary); /* Fonte HACK */
+  text-transform: none; /* <-- CORRIGIDO */
+  line-height: 1;
+
+}
+.hero-logo{max-width:120px; height:auto; margin-bottom:25px}
+.hero-image-mobile{display:none} /* Esconde div da imagem mobile */
+.hero-content{
+  position:relative; z-index:2; max-width:600px; padding-left:0; margin-top:0; text-align:left;
+  display:flex; flex-direction:column; align-items:flex-start; gap:16px;
+}
+.hero-description{
+  font-size:1.3rem; /* Tamanho HACK original */
+  color:var(--color-light-gray); line-height:1.6; margin-bottom:0; max-width:500px;
+}
+.hero-headline .highlight-hero {
+    color: var(--color-red); /* Cor HACK */
+}
+
+
+/* --- SEÇÃO PROBLEMA (Estilo do SINDCAN, Cor HACK, Borda Fina) --- */
+#problema {
+    background-color: #000000;
+    padding: 6rem 0; /* Padding HACK Original */
+}
+.challenge-box {
+    position: relative; 
+    max-width: 650px; /* <--- LARGURA AJUSTADA */
+    margin: 0 auto;
+    padding: 2px; /* Espessura fina da borda */
+    border-radius: 16px;
+    overflow: hidden; 
+}
+
+/* --- CORREÇÃO DEFINITIVA: Feixe de luz que não cruza 0/360 --- */
+.challenge-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 1;
+    /*
+      Este feixe existe entre 20 e 90 graus.
+      Ele tem um fade-in (20-45deg) e um fade-out (45-90deg).
+      Como ele termina em 90deg e só recomeça em 20deg (após a volta),
+      ele NUNCA vai cruzar a linha 0/360 e criar o bug das "duas cobras".
+    */
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,             /* Início transparente */
+        transparent 20deg,            /* Permanece transparente */
+        var(--color-red-glow) 40deg,  /* Começa o fade-in */
+        var(--color-red) 65deg,       /* Ponto de brilho máximo */
+        var(--color-red-glow) 90deg,  /* Começa o fade-out */
+        transparent 110deg,           /* Termina o fade-out */
+        transparent 360deg            /* Resto do círculo transparente */
+    );
+    animation: rotate-border 4s linear infinite; /* Aumentei a velocidade um pouco */
+}
+
+.challenge-box-content {
+    position: relative;
+    z-index: 2;
+    background-color: #000000; /* Fundo igual ao da seção */
+    border-radius: 14px; 
+    padding: 50px 40px;
+    text-align: center;
+}
+
+/* --- ESTILO DO ÍCONE DE RAIO (NOVA REGRA) --- */
+.hack-quote-icon {
+    font-size: 2.5rem; /* Tamanho do ícone */
+    color: var(--color-red); /* Cor vermelha HACK */
+    margin-bottom: 1.5rem; /* Espaço entre o ícone e a citação */
+    display: block; /* Garante que fique em sua própria linha */
+    text-align: center; /* Garante centralização */
+}
+
+/* Citação HACK */
+.hack-quote {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    line-height: 1.4;
+    color: var(--color-white);
+    max-width: 800px;
+    margin: 0 auto;
+   text-transform: none;
+}
+@keyframes rotate-border {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+/* --- SEÇÃO BENEFÍCIOS (Layout Original HACK) --- */
+.benefits .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.benefit-item {
+    background-color: var(--color-dark-gray);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    border-bottom: 4px solid var(--color-red);
+    transition: transform 0.3s ease;
+}
+.benefit-item:hover {
+    transform: translateY(-10px);
+}
+.benefit-item i {
+    font-size: 3.5rem;
+    color: var(--color-red);
+    margin-bottom: 1rem;
+}
+.benefit-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-white);
+}
+.scarcity-note {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* --- SEÇÃO PRODUTO (Layout Original HACK) --- */
+.product {
+    background-color: var(--color-dark-gray);
+}
+.product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.product-image img {
+    border-radius: 8px;
+}
+.product-info h2 {
+    margin-bottom: 1rem;
+}
+.product-info h3 {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+.flavors {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.flavor {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+.flavor.red {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+.flavor.purple {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+}
+.product-info ul {
+    margin: 1.5rem 0;
+}
+.product-info li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    color: #c0c0c0;
+}
+.product-info li i {
+    font-size: 1.5rem;
+    color: var(--color-red);
+    margin-right: 0.75rem;
+}
+
+/* --- SEÇÃO KIT LANÇAMENTO (Layout Original HACK) --- */
+.kit {
+    text-align: center;
+}
+.kit-badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-secondary);
+    font-size: 1.3rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.kit h2 {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+.kit-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    text-align: left;
+    margin-top: 4rem;
+}
+.kit-image img {
+    border-radius: 8px;
+}
+.kit-details h3 {
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+}
+.kit-details ul {
+    margin-bottom: 2rem;
+}
+.kit-details li {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.kit-details li i {
+    font-size: 1.8rem;
+    color: var(--color-red);
+    margin-right: 1rem;
+    min-width: 30px;
+}
+
+/* --- SEÇÃO PROVA SOCIAL (Layout Original HACK) --- */
+.social-proof {
+    background-color: var(--color-dark-gray);
+    text-align: center;
+}
+.social-proof blockquote {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    line-height: 1.4;
+    color: var(--color-white);
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+    border-left: 5px solid var(--color-red);
+    padding-left: 2rem;
+    text-align: left;
+}
+.social-proof span {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--color-red);
+    letter-spacing: 2px;
+}
+
+/* --- SEÇÃO CTA FINAL (Layout Original HACK) --- */
+.final-cta {
+    background-color: var(--color-dark-gray);
+    text-align: center;
+}
+.final-cta h2 {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+.final-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* --- FOOTER (Layout Original HACK) --- */
+.footer {
+    background-color: #000;
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-dark-gray);
+}
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+
+/* --- RESPONSIVO (Mobile) --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.8rem; }
+
+    section {
+        padding: 4rem 0;
+    }
+    
+    #problema {
+        padding: 4rem 0; /* Ajusta padding da nova seção */
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+/* --- INÍCIO DA SUBSTITUIÇÃO --- */
+/* Cole isso dentro do seu @media (max-width: 768px) { ... } */
+
+  .hero{
+    min-height:auto; 
+    background-image:none; 
+    background-color:transparent; /* Corrigido do SINDCAN */
+    padding:0; 
+    display:block;
+  }
+  
+  .hero-image-mobile{
+    display:block; 
+    width:100%; 
+    height:auto; 
+    padding-bottom:100%; /* <-- Esta é a "mágica" do aspect ratio */
+    background-image:url('img/bg-mobile.jpg'); /* Imagem do HACK */
+    background-size:cover; 
+    background-position:center; 
+    position:relative;
+  }
+  
+  .hero-logo{
+    display:block; 
+    position:relative; 
+    max-width:180px; 
+    z-index:4;
+    margin-top:-150px; /* <-- Puxa o logo para cima da imagem */
+    margin-bottom:20px; 
+    margin-left:auto; 
+    margin-right:auto;
+  }
+  
+ .hero-content {
+    max-width: 100%; 
+    padding: 0px 20px 40px; 
+    margin-top: 0; 
+    position: relative; 
+    z-index: 3; 
+    border-radius: 0;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 1rem;
+
+    /* --- ADICIONE AS LINHAS ABAIXO --- */
+
+    /* 1. Esta é a cor preta que fica por baixo */
+    background-color: var(--color-black); 
+
+    /* 2. Esta é a sua imagem nova, que fica por cima */
+    background-image: url('img/mob2.png'); /* <-- TROQUE PELO NOME DA SUA IMAGEM */
+
+    /* 3. Ajustes para a imagem */
+    background-position: top center;  /* Alinha a imagem no topo */
+    background-repeat: no-repeat; /* Para a imagem não se repetir */
+    background-size: 100% auto;   /* Faz a imagem ocupar 100% da largura */
+    
+    /* --- FIM DAS LINHAS --- */
+  }
+
+/* --- FIM DA SUBSTITUIÇÃO --- */
+    .hero-headline{
+        font-size:2.8rem; /* Fonte HACK */
+        text-align:center;
+    }
+    .hero-description{
+        font-size:1.1rem; /* Fonte HACK */
+        text-align:center; 
+        margin-bottom:30px; 
+        max-width:90%
+    }
+    .cta-button{
+        width:100%; 
+        text-align:center; 
+        padding:18px 30px; 
+        font-size:1.3rem; /* Fonte HACK */
+    }
+    
+    /* Citação HACK Mobile */
+    .hack-quote {
+        font-size: 1.8rem;
+    }
+    .hack-quote-icon {
+        font-size: 2rem; /* Ícone um pouco menor no mobile */
+        margin-bottom: 1rem;
+    }
+    .challenge-box-content {
+        padding: 30px 20px;
+    }
+
+    /* --- RESPONSIVO SEÇÕES HACK ORIGINAIS --- */
+    .product-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .kit-content {
+        grid-template-columns: 1fr;
+    }
+
+    .kit-image {
+        margin-bottom: 2rem;
+    }
+
+    .social-proof blockquote {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- RESPONSIVO (TABLET / NOTEBOOK PEQUENO) (do SINDCAN) --- */
+@media (min-width: 769px) and (max-width: 1400px) {
+  .hero {
+    padding-left: 8%;
+    padding-right: 4%;
+  }
+  .hero-headline {
+    font-size: 2.5rem; /* Fonte HACK */
+  }
+  .hero-content {
+    max-width: 500px;
+  }
+}
+
+/* --- RESPONSIVO (TELAS MUITO LARGAS) (do SINDCAN) --- */
+@media (min-width: 1600px) {
+  .hero {
+    padding: 100px 8% 100px 16%;
+  }
+  .hero-headline {
+    font-size: 4.5rem;
+}
