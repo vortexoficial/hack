@@ -1,0 +1,239 @@
+/* --- ESTILOS DO CHECKOUT HACK --- */
+
+/* Importa as fontes e cores do seu style.css original (assumindo que ele está linkado) */
+
+body {
+    background-color: var(--color-black);
+    color: var(--color-gray);
+}
+
+.checkout-header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-dark-gray);
+    text-align: center;
+}
+
+.checkout-logo {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.checkout-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+/* --- Lado Esquerdo: Formulário --- */
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-section {
+    background-color: var(--color-dark-gray);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.form-section h2 {
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #aaa;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-red);
+}
+
+.form-group-half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Pagamento */
+.payment-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.payment-method-btn {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payment-method-btn:hover {
+    border-color: #666;
+}
+
+.payment-method-btn.active {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    box-shadow: 0 0 10px var(--color-red-glow);
+}
+
+.payment-content {
+    display: none; /* Escondido por padrão */
+}
+
+.payment-content.active {
+    display: block; /* Visível quando ativo */
+}
+
+
+/* --- Lado Direito: Resumo do Pedido --- */
+
+.order-summary {
+    background-color: var(--color-dark-gray);
+    padding: 2rem;
+    border-radius: 12px;
+    position: sticky; /* Fica fixo ao rolar */
+    top: 2rem;
+    height: fit-content;
+}
+
+.order-summary h2 {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Imagem do Produto (Como solicitado) */
+.summary-product-image {
+    text-align: center;
+    padding: 1rem 0;
+}
+.summary-product-image img {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Opções de Produto */
+.product-options {
+    margin: 1rem 0;
+}
+.product-choice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.product-choice input[type="radio"] {
+    accent-color: var(--color-red);
+}
+
+/* Cupom (Corrigido) */
+.cupom-group {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+.cupom-group input {
+    flex-grow: 1; /* Ocupa o espaço */
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: var(--color-white);
+    padding: 0 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.cupom-group button {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Linhas de Resumo */
+.summary-lines {
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+}
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.summary-line span:first-child {
+    color: #aaa;
+}
+.summary-line.total {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.summary-line.total span:first-child {
+    color: var(--color-white);
+}
+
+/* Botão Finalizar Compra (Herdado do style.css) */
+#finalizar-compra {
+    width: 100%;
+    text-align: center;
+    padding: 1rem; /* Um pouco maior */
+    font-size: 1.2rem;
+}
+
+/* --- RESPONSIVO CHECKOUT --- */
+
+@media (max-width: 768px) {
+    .checkout-container {
+        grid-template-columns: 1fr; /* Empilha as colunas */
+    }
+
+    .order-summary {
+        grid-row: 1; /* Ordem de Resumo aparece primeiro no mobile */
+        position: static;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group-half {
+        grid-template-columns: 1fr; /* Empilha campos (ex: número e complemento) */
+    }
+}
