@@ -99,22 +99,44 @@
             </div>
         </section>
 
-        <section class="kit fade-in">
+<section class="kit fade-in">
             <div class="container">
                 <span class="kit-badge">Lançamento Exclusivo</span>
                 <h2>Kit de Lançamento HACK</h2>
                 <p>Garanta o kit completo HACK! Estoque limitadíssimo</p>
-                
+
+                <div class="kit-options">
+                    <div class="kit-choice">
+                        <input type="radio" id="kit-masculino" name="kit-option" value="mas" checked>
+                        <label for="kit-masculino">
+                            <i class="ph-bold ph-gender-male"></i>
+                            Kit Masculino
+                        </label>
+                    </div>
+                    <div class="kit-choice">
+                        <input type="radio" id="kit-feminino" name="kit-option" value="fem">
+                        <label for="kit-feminino">
+                            <i class="ph-bold ph-gender-female"></i>
+                            Kit Feminino
+                        </label>
+                    </div>
+                </div>
                 <div class="kit-content">
                     <div class="kit-image">
-                        <img src="img/hack-kit.png" alt="Kit HACK com caixa e sachês">
+                        <img src="img/kitmasc.png" alt="Kit HACK com caixa e sachês" id="kit-dynamic-image">
                     </div>
                     <div class="kit-details">
-                        <ul>
-                            <li><i class="ph-thin ph-package"></i> <strong>Caixa com 12 sachês HACK</strong> (Sabor à sua escolha)</li>
-                            <li><i class="ph-thin ph-t-shirt"></i> <strong>1 Brinde Exclusivo</strong> (Camisa, Top, Shorts ou Garrafa)</li>
-                            <li><i class="ph-thin ph-corners-out"></i> <strong>Adesivos Oficiais HACK</strong></li>
+                        <h3>Itens inclusos no Kit Completo:</h3>
+                        
+                        <ul id="kit-dynamic-list">
+                            <li><i class="ph-thin ph-package"></i> Sachezão HACK</li>
+                            <li><i class="ph-thin ph-cube"></i> Caixa de Gel com 12 sachês</li>
+                            <li><i class="ph-thin ph-t-shirt"></i> Camisa Exclusiva</li>
+                            <li><i class="ph-thin ph-baseball-cap"></i> Boné Exclusivo</li>
+                            <li><i class="ph-thin ph-flask"></i> Garrafa Dobrável</li>
+                            <li><i class="ph-thin ph-sticker"></i> Adesivos Oficiais HACK</li>
                         </ul>
+
                     <a href="checkout.html" class="cta-button"><i class="ph-bold ph-lightning"></i>
                Garanta seu Kit Hack
             </a>
@@ -122,6 +144,7 @@
                 </div>
             </div>
         </section>
+
      <section id="problema">
             <div class="container fade-in">
                 <div class="challenge-box">

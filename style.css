@@ -523,15 +523,23 @@ section {
     color: var(--color-white);
     margin-bottom: 1.5rem;
 }
+
+/* --- INÍCIO DA ATUALIZAÇÃO DO KIT (LAYOUT) --- */
 .kit-details ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no desktop */
+    gap: 1rem; /* Espaço entre os itens */
     margin-bottom: 2rem;
 }
+
 .kit-details li {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0; /* Removido - 'gap' agora controla o espaço */
     display: flex;
     align-items: center;
 }
+/* --- FIM DA ATUALIZAÇÃO DO KIT --- */
+
 .kit-details li i {
     font-size: 1.8rem;
     color: var(--color-red);
@@ -645,7 +653,7 @@ section {
   
  .hero-content {
     max-width: 100%; 
-    padding: 0px 20px 40px; 
+    padding: 0px 13px 40px; 
     margin-top: 0; 
     position: relative; 
     z-index: 3; 
@@ -716,9 +724,9 @@ section {
         text-align:center;
     }
     .hero-description{
-        font-size:1.1rem; /* Fonte HACK */
+        font-size:0.8rem; /* Fonte HACK */
         text-align:center; 
-        margin-bottom:0px; 
+        margin-bottom:-15px; 
         max-width:90%
     }
     .cta-button{
@@ -787,6 +795,13 @@ section {
     .kit-content {
         grid-template-columns: 1fr;
     }
+    
+    /* --- ATUALIZAÇÃO ADICIONADA PARA O KIT MOBILE --- */
+    .kit-details ul {
+        grid-template-columns: 1fr; /* Coluna única no mobile */
+        gap: 0.8rem;
+    }
+    /* --- FIM DA ATUALIZAÇÃO --- */
 
     .kit-image {
         margin-bottom: 2rem;
@@ -1111,5 +1126,74 @@ section {
         left: 5px;
         width: 8px;
         height: 8px;
+    }
+}
+
+/* --- ESTILOS DO SELETOR DE KIT --- */
+.kit-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: -2rem; /* Puxa o conteúdo de baixo para perto */
+}
+
+.kit-choice input[type="radio"] {
+    display: none; /* Esconde o radio button feio */
+}
+
+.kit-choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #222;
+    border: 2px solid #444;
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.kit-choice label i {
+    font-size: 1.3rem;
+}
+
+.kit-choice:hover label {
+    color: var(--color-white);
+    border-color: #666;
+}
+
+.kit-choice input[type="radio"]:checked + label {
+    border-color: var(--color-red);
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    box-shadow: 0 0 10px var(--color-red-glow);
+}
+
+/* --- EFEITO DE TRANSIÇÃO PARA TROCA --- */
+/* Adiciona transição suave à imagem e à lista */
+#kit-dynamic-image,
+#kit-dynamic-list {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Classe que o JS vai usar para "apagar" o conteúdo antes de trocar */
+.kit-content-updating {
+    opacity: 0;
+}
+
+
+/* Responsivo para os seletores */
+@media (max-width: 768px) {
+    .kit-options {
+        gap: 0.5rem;
+        margin-bottom: -1rem;
+    }
+    .kit-choice label {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
     }
 }
